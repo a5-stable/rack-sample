@@ -28,6 +28,7 @@ module ActionController
     def render_file(template)
       erb = ERB.new(File.read(template))
       erb.result # => <html>...
+      # send to client as response
     end
   end
 end
