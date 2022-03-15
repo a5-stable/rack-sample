@@ -6,3 +6,6 @@ ruby '3.0.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.1.4'
 gem 'pry'
+gem 'bootsnap', require: false
+gem 'webpacker'
+gem 'listen'
