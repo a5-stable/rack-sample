@@ -10,6 +10,25 @@ module ActionController
 
       [status, header, body]
     end
+
+    def render_template(action_name)
+      self.class # => UserController
+      action.name # => index
+
+      dir = self.class.name.sub(/Controller$/, "").downcase # => users
+      path = File.join(Dir.pwd, "app/controlers", dir) # => app/controllers/users
+
+      template = Dir.entries(path).find {|file|
+        path =~ /^#{action_name}/
+      } # => index.html.erb
+
+      render_file(template)
+    end
+
+    def render_file(template)
+      erb = ERB.new(File.read(template))
+      erb.result # => <html>...
+    end
   end
 end
 
